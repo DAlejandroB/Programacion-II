@@ -21,10 +21,10 @@ public class Figure {
 	private double rotation;
 
 	/**
-	 * Constructor encargado de asignarle un valor al tamaño y coordenadas del robot
+	 * Constructor encargado de asignarle un valor al tamaÃ±o y coordenadas del robot
 	 * 
 	 * @param size
-	 *            Tamaño de la figura
+	 *            TamaÃ±o de la figura
 	 * @param point
 	 *            Coordenada de la figura
 	 */
@@ -56,8 +56,8 @@ public class Figure {
 	}
 	
 	/**
-	 * Obtiene el tamaño establecido para las dimensiones del robot
-	 * @return Tamaño de cabeza del robot
+	 * Obtiene el tamaÃ±o establecido para las dimensiones del robot
+	 * @return TamaÃ±o de cabeza del robot
 	 */
 	
 	public int getSize() {
