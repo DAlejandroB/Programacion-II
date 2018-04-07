@@ -5,24 +5,35 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-public class JFrameAppGraphic extends JFrame{
-	
+/**
+ * Clase JFrameAppGraphic
+ * 
+ * @author Andrés Felipe
+ *
+ */
+public class JFrameAppGraphic extends JFrame {
+
 	private static final long serialVersionUID = 1L;
 
 	private JMenuBarAppGraphic jMenuBarAppGraphic;
 	private JToolBarAppGraphic jToolBarAppGraphic;
 	private JPanelWorkArea jPanelWorkArea;
 	private JPanelStatusBar jPanelStatusBar;
-	
-	public JFrameAppGraphic(Figure figure) {
+
+	/**
+	 * Constructor que inicializa el formato del cuadro y el atributo figure
+	 * 
+	 * @param figure
+	 */
+	public JFrameAppGraphic(Figure[] figures) {
 		super(Constants.APP_NAME);
 		this.jMenuBarAppGraphic = new JMenuBarAppGraphic();
 		this.jToolBarAppGraphic = new JToolBarAppGraphic();
-		this.jPanelWorkArea = new JPanelWorkArea(figure);
+		this.jPanelWorkArea = new JPanelWorkArea(figures);
 		this.jPanelStatusBar = new JPanelStatusBar();
 		init();
 	}
-	
+
 	private void init() {
 		this.setLayout(new BorderLayout());
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -32,5 +43,9 @@ public class JFrameAppGraphic extends JFrame{
 		this.add(jPanelStatusBar, BorderLayout.SOUTH);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+
+	public JPanelWorkArea getjPanelWorkArea() {
+		return jPanelWorkArea;
 	}
 }
