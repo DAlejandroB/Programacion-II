@@ -11,7 +11,7 @@ public class CounterGUI implements Runnable {
 	private Thread thread;
 
 	public CounterGUI(int id, CounterListener c) {
-		this.container = new ToolBarContainer(id);
+		this.container = new ToolBarContainer(c, id);
 		this.counter = new MyCounter();
 		this.isRunning = false;
 		this.isCharged = false;

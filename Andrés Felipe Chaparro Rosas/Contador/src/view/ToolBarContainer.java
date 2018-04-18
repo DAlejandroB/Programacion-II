@@ -16,33 +16,35 @@ import controller.CounterListener;
 public class ToolBarContainer extends JToolBar {
 	private static final long serialVersionUID = 1L;
 	private int id;
+	private MyToolBar myToolBar;
 	private JLabel mainLabel;
 	private HintJTextField startField;
 	private HintJTextField finishField;
 	private HintJTextField incrementField;
 	private HintJTextField speedField;
 
-	public ToolBarContainer(int id) {
-		this(0, id);
+	public ToolBarContainer(CounterListener c, int id) {
+		this(c, 0, id);
 	}
 
-	public ToolBarContainer(int start, int id) {
+	public ToolBarContainer(CounterListener c, int start, int id) {
 		this.id = id;
+		this.myToolBar = new MyToolBar(c, id);
 		this.mainLabel = new JLabel(start + "", JLabel.CENTER);
 		this.startField = new HintJTextField("Start");
 		this.finishField = new HintJTextField("Finish");
 		this.incrementField = new HintJTextField("Increment");
 		this.speedField = new HintJTextField("Speed");
-		this.init();
+		this.init(c);
 	}
 
-	private void init() {
+	private void init(CounterListener c) {
 		this.setLayout(new BorderLayout());
 		this.setBorder(new CompoundBorder(BorderFactory.createLineBorder(Color.darkGray),
 				BorderFactory.createEmptyBorder(3, 3, 3, 3)));
 		
 		this.mainLabel.setFont(new Font("Arial", Font.PLAIN, 80));
-		this.add(new MyToolBar(null, id),BorderLayout.NORTH);
+		this.add(myToolBar,BorderLayout.NORTH);
 		this.add(toolBarPanel(), BorderLayout.SOUTH);
 		this.add(mainLabel, BorderLayout.CENTER);
 	}
@@ -79,14 +81,18 @@ public class ToolBarContainer extends JToolBar {
 		return intNum;
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	public void setBlankField() {
 		this.startField.putHint();
 		this.finishField.putHint();
 		this.incrementField.putHint();
 		this.speedField.putHint();
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public MyToolBar getMyToolBar() {
+		return myToolBar;
 	}
 }
