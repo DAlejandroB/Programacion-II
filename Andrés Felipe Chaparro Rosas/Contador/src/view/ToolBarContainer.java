@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.border.CompoundBorder;
 
+import com.ohmiosmega.view.HintJTextField;
+
 import controller.CounterListener;
 
 public class ToolBarContainer extends JToolBar {
@@ -31,14 +33,14 @@ public class ToolBarContainer extends JToolBar {
 		this.id = id;
 		this.myToolBar = new MyToolBar(c, id);
 		this.mainLabel = new JLabel(start + "", JLabel.CENTER);
-		this.startField = new HintJTextField("Start");
-		this.finishField = new HintJTextField("Finish");
+		this.startField = new HintJTextField("Start",true);
+		this.finishField = new HintJTextField("Finish",true);
 		this.incrementField = new HintJTextField("Increment");
 		this.speedField = new HintJTextField("Speed");
-		this.init(c);
+		this.init();
 	}
 
-	private void init(CounterListener c) {
+	private void init() {
 		this.setLayout(new BorderLayout());
 		this.setBorder(new CompoundBorder(BorderFactory.createLineBorder(Color.darkGray),
 				BorderFactory.createEmptyBorder(3, 3, 3, 3)));
@@ -76,6 +78,7 @@ public class ToolBarContainer extends JToolBar {
 		try {
 			intNum = Integer.parseInt(string);
 		} catch (NumberFormatException e) {
+			System.out.println(e);
 			intNum = ex;
 		}
 		return intNum;

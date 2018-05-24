@@ -8,10 +8,10 @@ public class MyCounter {
 	}
 
 	public MyCounter(int start, int finish, int increment, int speed) {
-		this.setIncrement(increment);
-		this.setStartNumber(start);
 		this.finishNumber = finish;
 		this.speed = speed;
+		this.setIncrement(increment, start);
+		this.setStartNumber(start);
 		resetCurrent();
 	}
 
@@ -51,14 +51,14 @@ public class MyCounter {
 		this.startNumber = startNumber - this.increment;
 	}
 
-	public void setIncrement(int increment) {
-		this.increment = (startNumber < finishNumber ? 1 : -1) * Math.abs(increment);
+	public void setIncrement(int increment, int start) {
+		this.increment = (start < finishNumber ? 1 : -1) * Math.abs(increment);
 	}
 
 	public void setAll(int start, int finish, int increment, int speed) {
 		this.finishNumber = finish;
 		this.speed = speed;
-		this.setIncrement(increment);
+		this.setIncrement(increment,start);
 		this.setStartNumber(start);
 		resetCurrent();
 	}

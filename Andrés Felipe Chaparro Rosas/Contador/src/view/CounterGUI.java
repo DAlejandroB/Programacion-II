@@ -26,6 +26,14 @@ public class CounterGUI implements Runnable {
 			} catch (InterruptedException e) {
 			}
 		}
+		if(counter.isLast()) {
+			isRunning=false;
+			getContainer().getMyToolBar().setPlayButtonEnabled(true);
+			getContainer().getMyToolBar().setPauseButtonEnabled(false);
+			getContainer().getMyToolBar().setFinishButtonEnabled(false);
+			pause();
+			isCharged=false;
+		}
 	}
 
 	public void init() {

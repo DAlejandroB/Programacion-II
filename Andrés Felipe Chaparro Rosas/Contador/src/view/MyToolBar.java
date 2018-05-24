@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JToolBar;
 
 import controller.CounterListener;
+import models.Commands;
 
 public class MyToolBar extends JToolBar{
 	private static final long serialVersionUID = 1L;
@@ -29,13 +30,13 @@ public class MyToolBar extends JToolBar{
 		pauseButton.setIcon(new ImageIcon("src/res/pause.png"));
 		stopButton.setIcon(new ImageIcon("src/res/stop.png"));
 		clearButton.setIcon(new ImageIcon("src/res/clear.png"));
-		playButton.setActionCommand("COMMAND_PLAY"+id);
+		playButton.setActionCommand(Commands.COMMAND_PLAY+""+id);
 		playButton.setToolTipText("Play"+id);
-		pauseButton.setActionCommand("COMMAND_PAUSE"+id);
+		pauseButton.setActionCommand(Commands.COMMAND_PAUSE+""+id);
 		pauseButton.setToolTipText("Pause");
-		stopButton.setActionCommand("COMMAND_STOP"+id);
+		stopButton.setActionCommand(Commands.COMMAND_STOP+""+id);
 		stopButton.setToolTipText("Stop");
-		clearButton.setActionCommand("COMMAND_CLEAR"+id);
+		clearButton.setActionCommand(Commands.COMMAND_CLEAR+""+id);
 		clearButton.setToolTipText("Clear");
 		playButton.addActionListener(c);
 		pauseButton.addActionListener(c);
